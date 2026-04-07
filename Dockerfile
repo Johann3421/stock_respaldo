@@ -1,22 +1,36 @@
 FROM php:8.2-fpm-alpine
 
-# Install system dependencies
-RUN apk add --no-cache \
+# Install runtime libs and build dependencies, compile PHP extensions, then remove build deps
+RUN apk add --no-cache --virtual .runtime-deps \
     nginx \
     nodejs \
     npm \
     git \
     curl \
     libpq \
-    libpq-dev \
-    libzip-dev \
+    libzip \
     zip \
     unzip \
     oniguruma-dev \
     icu-dev \
-    supervisor
+    supervisor \
+    libxml2 \
+    zlib \
+    openssl
 
-# Install PHP extensions
+RUN apk add --no-cache --virtual .build-deps \
+    build-base \
+    autoconf \
+    bison \
+    re2c \
+    linux-headers \
+    libxml2-dev \
+    zlib-dev \
+    libzip-dev \
+    postgresql-dev \
+    pkgconfig
+
+# Configure and install PHP extensions that require compilation
 RUN docker-php-ext-install \
     pdo \
     pdo_pgsql \
@@ -27,7 +41,8 @@ RUN docker-php-ext-install \
     bcmath \
     zip \
     intl \
-    opcache
+    opcache \
+ && apk del .build-deps
 
 # Install Composer
 COPY --from=composer:2.7 /usr/bin/composer /usr/bin/composer
