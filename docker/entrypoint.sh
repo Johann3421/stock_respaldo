@@ -9,7 +9,22 @@ done
 echo "==> PostgreSQL is ready."
 
 echo "==> Fixing migrations sequence if needed..."
-php -r "try { \$dsn = 'pgsql:host=' . getenv('DB_HOST') . ';port=' . getenv('DB_PORT') . ';dbname=' . getenv('DB_DATABASE'); \$pdo = new PDO(\$dsn, getenv('DB_USERNAME'), getenv('DB_PASSWORD')); \$seq = \$pdo->query(\"SELECT pg_get_serial_sequence('migrations','id')\")->fetchColumn(); if (\$seq) { \$max = \$pdo->query(\"SELECT COALESCE(MAX(id),0) FROM migrations\")->fetchColumn(); \$next = (int)\$max + 1; \$pdo->exec(\"SELECT setval('\" . \$seq . \"', \" . \$next . \", false)\"); echo 'migrations sequence set to ' . \$next . "\n"; } } catch (Exception \$e) { echo 'could not adjust migrations sequence: ' . \$e->getMessage() . "\n"; }"
+php <<'PHP'
+<?php
+try {
+    $dsn = 'pgsql:host=' . getenv('DB_HOST') . ';port=' . getenv('DB_PORT') . ';dbname=' . getenv('DB_DATABASE');
+    $pdo = new PDO($dsn, getenv('DB_USERNAME'), getenv('DB_PASSWORD'));
+    $seq = $pdo->query("SELECT pg_get_serial_sequence('migrations','id')")->fetchColumn();
+    if ($seq) {
+        $max = $pdo->query("SELECT COALESCE(MAX(id),0) FROM migrations")->fetchColumn();
+        $next = (int)$max + 1;
+        $pdo->exec("SELECT setval('$seq', $next, false)");
+        echo 'migrations sequence set to ' . $next . PHP_EOL;
+    }
+} catch (Exception $e) {
+    echo 'could not adjust migrations sequence: ' . $e->getMessage() . PHP_EOL;
+}
+PHP
 
 echo "==> Running migrations..."
 php artisan migrate --force
