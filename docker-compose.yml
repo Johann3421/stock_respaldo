@@ -41,9 +41,9 @@ services:
       - storage_data:/var/www/html/storage/app
       - logs_data:/var/www/html/storage/logs
     ports:
-      # Host ports changed to avoid conflicts on the host machine.
-      # Map host 8080 (or adjust via env) to container 80.
-      - "8080:80"
+      # Use an environment-configurable host port to avoid conflicts.
+      # Override HOST_APP_PORT in your host env or .env when starting locally.
+      - "${HOST_APP_PORT:-18080}:80"
     depends_on:
       db:
         condition: service_healthy
