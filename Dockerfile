@@ -11,12 +11,16 @@ RUN apk add --no-cache --virtual .runtime-deps \
     libzip \
     zip \
     unzip \
-    oniguruma-dev \
-    icu-dev \
+    oniguruma \
+    icu-libs \
     supervisor \
     libxml2 \
     zlib \
-    openssl
+    openssl \
+    libjpeg-turbo \
+    libpng \
+    libwebp \
+    freetype
 
 RUN apk add --no-cache --virtual .build-deps \
     build-base \
@@ -28,13 +32,21 @@ RUN apk add --no-cache --virtual .build-deps \
     zlib-dev \
     libzip-dev \
     postgresql-dev \
-    pkgconfig
+    pkgconfig \
+    oniguruma-dev \
+    icu-dev \
+    libjpeg-turbo-dev \
+    libpng-dev \
+    libwebp-dev \
+    freetype-dev
 
-# Configure and install PHP extensions that require compilation
-RUN docker-php-ext-install \
+# Configure GD and install PHP extensions that require compilation
+RUN docker-php-ext-configure gd --with-freetype --with-jpeg --with-webp \
+ && docker-php-ext-install \
     pdo \
     pdo_pgsql \
     pgsql \
+    gd \
     mbstring \
     exif \
     pcntl \
