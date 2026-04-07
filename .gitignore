@@ -5,7 +5,8 @@ Thumbs.db
 
 # Environment
 .env
-.env.*
+# keep .env.example tracked
+!.env.example
 
 # Vendor & node
 /vendor/
@@ -28,5 +29,4 @@ Thumbs.db
 
 # Misc
 composer.phar
-phpunit.xml
 .phpunit.result.cache
