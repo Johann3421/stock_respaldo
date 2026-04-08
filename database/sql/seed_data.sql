@@ -2370,6 +2370,19 @@ INSERT INTO sessions (id, user_id, ip_address, user_agent, payload, last_activit
 ('Yn7AldMnm0H8fQnEl5szbOvsGrVNaQNAX9i4SBvc', NULL, '104.232.220.118', 'Go-http-client/2.0', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiazZGdWJvaGRsUHlCaWxKRFlEVm5iQ1pnOWdEQ2JkTjV2VjZYeXBKRyI7czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6NDE6Imh0dHBzOi8vc3RvY2tzZWthaS5zZWthaXRlY2guY29tLnBlL2xvZ2luIjtzOjU6InJvdXRlIjtzOjU6ImxvZ2luIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1774663254),
 ('yqzFNQJi0XHyYsRbrPOcrVkhEEJEHPSLtDwg970E', NULL, '205.169.39.20', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.5938.132 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoieHI0ZkJmS1BLUTJ4NnNsWEdVSEk4UFdoODNEMUxZS2hkazBpd0JBMiI7czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6NDE6Imh0dHBzOi8vc3RvY2tzZWthaS5zZWthaXRlY2guY29tLnBlL2xvZ2luIjtzOjU6InJvdXRlIjtzOjU6ImxvZ2luIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1774461100),
 ('YZVvmrB69eOmifgWZR4Rg9SLMr7HrtVl68bwYJ8u', NULL, '205.169.39.8', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.5938.132 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiTmZwM2FMU2w3U2p3TUduNzlFZXAwZ05kb3ZnZ3lkQWVXa2hRb256QiI7czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6NDU6Imh0dHBzOi8vd3d3LnN0b2Nrc2VrYWkuc2VrYWl0ZWNoLmNvbS5wZS9sb2dpbiI7czo1OiJyb3V0ZSI7czo1OiJsb2dpbiI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1774563135);
+INSERT INTO users (id, name, email, google_id, email_verified_at, password, remember_token, created_at, updated_at) VALUES
+(1, 'johann', 'johan12@gmail.com', NULL, NULL, '$2y$12$BLiYONHqSDFxKb2Xg09rM.XFZlj8CKYie9h8SQveGWxGQGAVqDI0K', NULL, '2026-01-02 21:49:48', '2026-01-02 21:49:48'),
+(2, 'prueba1', 'prueba1@gmail.com', NULL, NULL, '$2y$12$XhfSILL37ae6DO9RBZtm3eEn4.7UOIYdgDzADpgt6HXmDdk4yEWZy', NULL, '2026-01-02 22:41:10', '2026-01-02 22:41:10'),
+(3, 'ESTALIN', 'HUAMALI@GMAIL.COM.PE', NULL, NULL, '$2y$12$YpZyQDUQvkA.N1YZs.xuoeWw6gAsodo2oTym/jS.PTnl2XySCB3i2', NULL, '2026-01-02 22:42:55', '2026-01-02 22:42:55'),
+(4, 'ESTALIN HUAMALI', 'huamalialcantara@gmail.com', NULL, NULL, '$2y$12$8S/qYdSuvABngRhvDxas1.QLo.SnAGJWYVX9bM9b2Uxxd7hwjYMwa', 'THWSLTdAjXpGWdTAGncsYNuuIkBKFs6aiEI5RZpvY196KgstdFHn1HCoKeTX', '2026-01-02 22:53:43', '2026-01-02 22:53:43'),
+(5, 'Franco', 'antonio12_09_@hotmail.com', NULL, NULL, '$2y$12$34ZJGFv5gcpJRU1BzPOBPebGWpEb0RvOSv1IR2xR5TVLHz79VfpLW', NULL, '2026-01-02 23:01:32', '2026-01-02 23:01:32'),
+(6, 'Carlos trujillo', 'Caluloctr18@outlook.com', NULL, NULL, '$2y$12$nE.jPsiNw87zS1cidOtfFO7GG5L7aa7eR6VPTHweNhgPpx30t66ZC', NULL, '2026-01-02 23:02:39', '2026-01-02 23:02:39'),
+(7, 'NEISON', 'neisonalvarezchacas@gmail.com', NULL, NULL, '$2y$12$H8yZNNfnnvgIwPYlnrHX9u38X2zfz8mbMH.w0CvFTjgXiN8kZJFly', NULL, '2026-01-02 23:05:24', '2026-01-02 23:05:24'),
+(8, 'Fernando', 'ftrinidadrosas121@gmail.com', NULL, NULL, '$2y$12$GvlE/Zx/7/o5DScEz6OgjuqRUHDKRIw/l1gJiO14f1Y2jib5aVWqy', NULL, '2026-01-03 14:11:25', '2026-01-03 14:11:25'),
+(9, 'Andersson Almerco', 'jhordan2402@gmail.com', NULL, NULL, '$2y$12$jiwVjFPpccI/d0aBz3BEYeKr.ExjUYzjYYEqDzC00QgJ.oMTD7dwq', NULL, '2026-01-03 15:42:05', '2026-01-03 15:42:05'),
+(10, 'asd', 'asd@gmail.com', NULL, NULL, '$2y$12$uA5dfObpBper1AnHRMA1Nu63PqMfIfaKQi7YYKfrBV.DdZJy26uLy', NULL, '2026-01-03 22:54:01', '2026-01-03 22:54:01'),
+(11, 'Jhan Franco', 'jhanfranco12@gmail.com', NULL, NULL, '$2y$12$a0xkiLyPO0m59Mdmn7u.deUHL4SzTgkdE1DTKt/KZ4JXgFNfqIfXK', NULL, '2026-01-17 23:00:16', '2026-01-17 23:00:16'),
+(12, 'Yanet Yede Rivera Duran', 'Yedy.rd1@gmail.com', NULL, NULL, '$2y$12$cc95h/9qZ7Cemm3g5L8xxegbRkChoQuJOfSiEnihoF186cV.at.jm', NULL, '2026-02-06 00:14:06', '2026-02-06 00:14:06');
 INSERT INTO stock_verifications (id, product_id, user_id, stock_anterior, stock_verificado, verificado_por, created_at, updated_at) VALUES
 (4, 4496, 3, 6, 5, 'ESTALIN', '2026-01-02 22:43:41', '2026-01-02 22:43:41'),
 (5, 4496, 3, 5, 8, 'ESTALIN', '2026-01-02 22:44:37', '2026-01-02 22:44:37'),
@@ -4659,20 +4672,6 @@ INSERT INTO stock_verifications (id, product_id, user_id, stock_anterior, stock_
 (2290, 4982, 9, 14, 13, 'Andersson Almerco', '2026-01-09 17:22:29', '2026-01-09 17:22:29'),
 (2291, 4982, 9, 14, 13, 'Andersson Almerco', '2026-01-09 17:22:30', '2026-01-09 17:22:30'),
 (2292, 4982, 9, 3, 4, 'Andersson Almerco', '2026-01-09 17:22:31', '2026-01-09 17:22:31');
-INSERT INTO users (id, name, email, google_id, email_verified_at, password, remember_token, created_at, updated_at) VALUES
-(1, 'johann', 'johan12@gmail.com', NULL, NULL, '$2y$12$BLiYONHqSDFxKb2Xg09rM.XFZlj8CKYie9h8SQveGWxGQGAVqDI0K', NULL, '2026-01-02 21:49:48', '2026-01-02 21:49:48'),
-(2, 'prueba1', 'prueba1@gmail.com', NULL, NULL, '$2y$12$XhfSILL37ae6DO9RBZtm3eEn4.7UOIYdgDzADpgt6HXmDdk4yEWZy', NULL, '2026-01-02 22:41:10', '2026-01-02 22:41:10'),
-(3, 'ESTALIN', 'HUAMALI@GMAIL.COM.PE', NULL, NULL, '$2y$12$YpZyQDUQvkA.N1YZs.xuoeWw6gAsodo2oTym/jS.PTnl2XySCB3i2', NULL, '2026-01-02 22:42:55', '2026-01-02 22:42:55'),
-(4, 'ESTALIN HUAMALI', 'huamalialcantara@gmail.com', NULL, NULL, '$2y$12$8S/qYdSuvABngRhvDxas1.QLo.SnAGJWYVX9bM9b2Uxxd7hwjYMwa', 'THWSLTdAjXpGWdTAGncsYNuuIkBKFs6aiEI5RZpvY196KgstdFHn1HCoKeTX', '2026-01-02 22:53:43', '2026-01-02 22:53:43'),
-(5, 'Franco', 'antonio12_09_@hotmail.com', NULL, NULL, '$2y$12$34ZJGFv5gcpJRU1BzPOBPebGWpEb0RvOSv1IR2xR5TVLHz79VfpLW', NULL, '2026-01-02 23:01:32', '2026-01-02 23:01:32'),
-(6, 'Carlos trujillo', 'Caluloctr18@outlook.com', NULL, NULL, '$2y$12$nE.jPsiNw87zS1cidOtfFO7GG5L7aa7eR6VPTHweNhgPpx30t66ZC', NULL, '2026-01-02 23:02:39', '2026-01-02 23:02:39'),
-(7, 'NEISON', 'neisonalvarezchacas@gmail.com', NULL, NULL, '$2y$12$H8yZNNfnnvgIwPYlnrHX9u38X2zfz8mbMH.w0CvFTjgXiN8kZJFly', NULL, '2026-01-02 23:05:24', '2026-01-02 23:05:24'),
-(8, 'Fernando', 'ftrinidadrosas121@gmail.com', NULL, NULL, '$2y$12$GvlE/Zx/7/o5DScEz6OgjuqRUHDKRIw/l1gJiO14f1Y2jib5aVWqy', NULL, '2026-01-03 14:11:25', '2026-01-03 14:11:25'),
-(9, 'Andersson Almerco', 'jhordan2402@gmail.com', NULL, NULL, '$2y$12$jiwVjFPpccI/d0aBz3BEYeKr.ExjUYzjYYEqDzC00QgJ.oMTD7dwq', NULL, '2026-01-03 15:42:05', '2026-01-03 15:42:05'),
-(10, 'asd', 'asd@gmail.com', NULL, NULL, '$2y$12$uA5dfObpBper1AnHRMA1Nu63PqMfIfaKQi7YYKfrBV.DdZJy26uLy', NULL, '2026-01-03 22:54:01', '2026-01-03 22:54:01'),
-(11, 'Jhan Franco', 'jhanfranco12@gmail.com', NULL, NULL, '$2y$12$a0xkiLyPO0m59Mdmn7u.deUHL4SzTgkdE1DTKt/KZ4JXgFNfqIfXK', NULL, '2026-01-17 23:00:16', '2026-01-17 23:00:16'),
-(12, 'Yanet Yede Rivera Duran', 'Yedy.rd1@gmail.com', NULL, NULL, '$2y$12$cc95h/9qZ7Cemm3g5L8xxegbRkChoQuJOfSiEnihoF186cV.at.jm', NULL, '2026-02-06 00:14:06', '2026-02-06 00:14:06');
-
 COMMIT;
 
 -- Reset auto-increment sequences
