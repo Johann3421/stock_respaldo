@@ -24,11 +24,11 @@ class ProductionDataSeeder extends Seeder
         // For PostgreSQL bulk import: temporarily disable FK checks by setting
         // session_replication_role to 'replica'. This allows inserting rows
         // without foreign-key order constraints during bulk load.
+        $driver = null;
         try {
-            $driver = null;
             try {
                 $pdo = DB::getPdo();
-                $driver = $pdo->getAttribute(PDO::ATTR_DRIVER_NAME);
+                $driver = $pdo->getAttribute(\PDO::ATTR_DRIVER_NAME);
             } catch (Exception $e) {
                 // ignore, we'll attempt import anyway
             }
@@ -41,8 +41,8 @@ class ProductionDataSeeder extends Seeder
 
         } finally {
             try {
-                if (isset($driver) && $driver === 'pgsql') {
-                    DB::statement("SET session_replication_role = DEFAULT;");
+                if ($driver === 'pgsql') {
+                    DB::statement("SET session_replication_role = 'origin';");
                 }
             } catch (Exception $e) {
                 // log but don't fail the seeder cleanup
