@@ -11,6 +11,11 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
+        // Trust all reverse proxies (Nginx, Dokploy, etc.) so that Laravel
+        // reads X-Forwarded-Proto / X-Forwarded-For and generates https:// URLs,
+        // preventing the browser "insecure form submission" warning.
+        $middleware->trustProxies(at: '*');
+
         // Protección contra CSRF
         $middleware->validateCsrfTokens(except: [
             // Agregar aquí rutas que necesiten excluirse de CSRF si es necesario

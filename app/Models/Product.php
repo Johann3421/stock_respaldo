@@ -165,19 +165,43 @@ class Product extends Model
     // Scopes
     public function scopeSearch(Builder $query, ?string $search): Builder
     {
-        if (empty($search)) {
+        if (empty(trim($search ?? ''))) {
             return $query;
         }
 
-        $searchClean = $this->removeAccents($search);
+        // Split search into individual terms (whitespace or comma-separated).
+        // Each term must match at least one searchable column → AND logic between
+        // terms means "laptop hp" finds products containing BOTH words in any order.
+        $terms = array_values(array_filter(
+            preg_split('/[\s,]+/', trim($search)),
+            fn($t) => strlen(trim($t)) > 0
+        ));
 
-        return $query->where(function($q) use ($search, $searchClean) {
-            $q->where('codigo', 'like', "%{$search}%")
-              ->orWhere('producto', 'like', "%{$search}%")
-              ->orWhere('marca', 'like', "%{$search}%")
-              ->orWhereRaw("LOWER(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(producto, 'á', 'a'), 'é', 'e'), 'í', 'i'), 'ó', 'o'), 'ú', 'u')) LIKE ?", ["%{$searchClean}%"])
-              ->orWhereRaw("LOWER(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(marca, 'á', 'a'), 'é', 'e'), 'í', 'i'), 'ó', 'o'), 'ú', 'u')) LIKE ?", ["%{$searchClean}%"]);
-        });
+        if (empty($terms)) {
+            return $query;
+        }
+
+        foreach ($terms as $term) {
+            $termClean = $this->removeAccents($term);
+            $termLike  = "%{$term}%";
+            $termCleanLike = "%{$termClean}%";
+
+            // Build the accent-normalised LOWER(REPLACE(...)) chain for PostgreSQL
+            $normalize = fn(string $col): string =>
+                "LOWER(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE({$col}, 'á', 'a'), 'é', 'e'), 'í', 'i'), 'ó', 'o'), 'ú', 'u'), 'ñ', 'n'))";
+
+            $query->where(function ($q) use ($term, $termLike, $termCleanLike, $normalize) {
+                // ILIKE = case-insensitive LIKE in PostgreSQL
+                $q->where('codigo',   'ilike', $termLike)
+                  ->orWhere('producto', 'ilike', $termLike)
+                  ->orWhere('marca',    'ilike', $termLike)
+                  ->orWhereRaw($normalize('producto') . ' LIKE ?', [$termCleanLike])
+                  ->orWhereRaw($normalize('marca')    . ' LIKE ?', [$termCleanLike])
+                  ->orWhereRaw($normalize('codigo')   . ' LIKE ?', [$termCleanLike]);
+            });
+        }
+
+        return $query;
     }
 
     public function scopeByStockColor(Builder $query, ?string $color): Builder
