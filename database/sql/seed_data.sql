@@ -137,26 +137,6 @@ INSERT INTO cache (key, value, expiration) VALUES
 ('stocksekai-cache-fe5dbbcea5ce7e2988b8c69bcfdfde8904aabc1f:timer', 'i:1771941249;', 1771941249),
 ('stocksekai-cache-soporte@sekaitech.com.pe|38.250.159.18', 'i:1;', 1771971390),
 ('stocksekai-cache-soporte@sekaitech.com.pe|38.250.159.18:timer', 'i:1771971390;', 1771971390);
-INSERT INTO migrations (id, migration, batch) VALUES
-(1, '0001_01_01_000000_create_users_table', 1),
-(2, '0001_01_01_000001_create_cache_table', 1),
-(3, '0001_01_01_000002_create_jobs_table', 1),
-(4, '2026_01_02_163140_create_products_table', 2),
-(5, '2026_01_02_163202_create_stock_verifications_table', 2),
-(6, '2026_01_02_163434_add_google_id_to_users_table', 2),
-(7, '2026_01_02_213736_add_second_verification_columns_to_products_table', 2),
-(8, '2026_01_03_091259_add_third_verification_columns_to_products_table', 2),
-(9, '2026_01_03_182332_add_indexes_to_products_and_sessions_tables', 2),
-(10, '2026_01_15_085914_create_patrimonio_items_table', 3),
-(11, '2026_01_15_150000_create_area_ventas_table', 4),
-(12, '2026_01_15_150001_create_area_contaduria_table', 4),
-(13, '2026_01_15_150002_create_area_gerencia_table', 4),
-(14, '2026_01_15_150003_create_area_diseno_table', 4),
-(15, '2026_01_15_150004_create_area_sistemas_table', 4),
-(16, '2026_01_15_150005_create_area_administracion_table', 4),
-(17, '2026_01_15_150006_create_area_sala_reuniones_table', 4),
-(18, '2026_01_15_150007_create_area_ensamblado_table', 4),
-(19, '2026_01_15_150008_drop_patrimonio_items_table', 4);
 INSERT INTO productos_descuento (id, codigo, producto, marca, costo, precio_cliente, stock, fecha_ingreso, descuento_percent, created_at, updated_at) VALUES
 (1, '1689', 'ADAPTADOR ACDC UNIVERSAL, ENTRADA 100-240VAC 50-60HZ, SALIDA 12VDC 2A - SIN NP', 'GENERICA', 20.00, 25.00, 4, '2026-01-01 05:00:00', NULL, '2026-02-05 20:53:15', '2026-02-05 20:53:15'),
 (2, '2338', 'ADAPTADOR BLUETOOTH TP-LINK UB500 USB BLUETOOTH 5.3, ALCANCE 20M', 'TP-LINK', 20.09, 34.12, 0, '2026-01-01 05:00:00', NULL, '2026-02-05 20:53:15', '2026-02-05 20:53:15'),
